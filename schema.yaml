@@ -1,0 +1,133 @@
+# Copyright (c) 2021, Oracle and/or its affiliates. All rights reserved.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+
+title: "ScaleGrid Redis Deployment on OCI"
+Description: "Terraform Script to deploy Redis on OCI"
+informationalText: "Terraform Script to deploy Redis on OCI"
+schemaVersion: 1.1.0
+version: "20220210"
+locale: "en"
+
+variableGroups:
+- title: Login Credentials
+  visible: true
+  variables:
+    - scalegrid_username
+    - scalegrid_password
+
+- title: Redis Cluster Configuration
+  visible: true
+  variables:
+    - cluster_name
+    - redis_version
+    - server_count
+    - shard_count
+    - size
+    - cidr_list
+    - machine_pool_list
+    - backup_interval
+
+variables:
+
+  cluster_name:
+    type: string
+    required: true
+    title: "Redis Cluster Name"
+    description: "Name for Redis Cluster. Only alpha numerics and hyphens(-) are allowed."
+
+  redis_version:
+    title: "Redis Version"
+    required: true
+    type: enum
+    description: "Please choose the supported Redis version"
+    default: "V625"
+    enum:
+      - "V625"
+      - "V604"
+      - "V505"
+
+  server_count:
+    type: integer
+    required: true
+    minimum: 1
+    maximum: 5
+    multipleOf: 1
+    default: 1
+    title: "Number of nodes in each shard"
+    description: "1 for standalone. For master/slave cluster, if this is an even number, ensure to set the sentinelCount as one higher than this."
+  
+  shard_count:
+    type: integer
+    required: true
+    minimum: 1
+    maximum: 5
+    multipleOf: 1
+    default: 1
+    title: "Number of shards in the cluster."
+    description: "1 if clusterMode is false."
+
+  size:
+    title: "Size of the cluster"
+    required: true
+    type: enum
+    description: "Please choose the supported size"
+    default: "Micro"
+    enum:
+      - "Micro"
+      - "Small"
+      - "Medium"
+      - "Large"
+      - "Xlarge"
+
+  cidr_list:
+    type: string
+    required: true
+    title: "CIDR List"
+    default: "10.1.0.0/24"
+    description: "Only these IPs will be allowed access to the deployment"
+
+  machine_pool_list:
+    title: "Machine Pool ID. Depends on region"
+    required: true
+    type: enum
+    description: "Mumbai: 5051, Melbourne: 5088, Sydney: 5092"
+    default: 5051
+    enum:
+      - 5051
+      - 5088
+      - 5092
+
+  backup_interval:
+    type: integer
+    required: true
+    minimum: 0
+    maximum: 24
+    multipleOf: 1
+    default: 24
+    title: "Backup interval in hour"
+    description: "0 if backup if not required"
+
+  scalegrid_username:
+    type: string
+    required: true
+    title: "ScaleGrid Username"
+    description: "Username for ScaleGrid"
+
+  scalegrid_password:
+    title: "ScaleGrid Password"
+    type: password
+    required: true
+    description: "Password for ScaleGrid"
+
+# outputs:
+#   prod-ml-model-endpoint:
+#     type: string
+#     title: "Prod ML Model Endpoint"
+#     displayText: "Prod ML Model Endpoint"
+#     visible: true
+
+#   test-ml-model-endpoint:
+#     type: string
+#     title: "Test ML Model Endpoint"
+#     displayText: "Test ML Model Endpoint"
+#     visible: true
