@@ -1,6 +1,6 @@
 resource "null_resource" "scalegrid_login" {
     provisioner "local-exec" {
-        command = "curl -k https://console.scalegrid.io/login -c cookiejar.txt -d '{'username': '${var.scalegrid_username}', 'password': '${var.scalegrid_password}'}'"
+        command = "curl -k https://console.scalegrid.io/login -c cookiejar.txt -H 'Content-Type: application/json' --data-raw '{'username': '${var.scalegrid_username}', 'password': '${var.scalegrid_password}'}'"
         interpreter = [ "/bin/bash","-c"]
     }
 }
