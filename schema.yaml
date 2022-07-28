@@ -80,10 +80,12 @@ variables:
       - "Xlarge"
 
   cidr_list:
-    type: string
+    type: array
     required: true
     title: "CIDR List"
-    default: "10.1.0.0/24"
+    items:
+      type: string
+    default: [ 10.1.0.0/24 ]
     description: "Only these IPs will be allowed access to the deployment"
 
   machine_pool_list:
