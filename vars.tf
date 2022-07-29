@@ -42,7 +42,6 @@ variable "scalegrid_username"{
 variable "scalegrid_password"{
 }
 
-
 # data "oci_core_services" "all_services" {
 # }
 

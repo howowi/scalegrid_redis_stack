@@ -121,12 +121,12 @@ variables:
     required: true
     description: "Password for ScaleGrid"
 
-# outputs:
-#   prod-ml-model-endpoint:
-#     type: string
-#     title: "Prod ML Model Endpoint"
-#     displayText: "Prod ML Model Endpoint"
-#     visible: true
+outputs:
+  scalegrid_redis_url:
+    type: string
+    title: "ScaleGrid Redis Console URL"
+    displayText: "ScaleGrid Redis Console URL"
+    visible: true
 
 #   test-ml-model-endpoint:
 #     type: string
