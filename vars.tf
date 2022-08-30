@@ -30,6 +30,16 @@ variable "size"{
 variable "cidr_list"{
 }
 
+variable "machine_pool_map"{
+  type = "map"
+  default = {
+    "ap-mumbai-1" = "5051"
+    "ap-melbourne-1" = "5088"
+    "ap-sydney-1" = "5092"
+    "oci_byoc" = "1234"
+  }
+}
+
 variable "machine_pool_list"{
 }
 
@@ -41,23 +51,3 @@ variable "scalegrid_username"{
 
 variable "scalegrid_password"{
 }
-
-# data "oci_core_services" "all_services" {
-# }
-
-# data oci_identity_availability_domain AD-1 {
-#   compartment_id = var.compartment_ocid
-#   ad_number      = "1"
-# }
-# data oci_identity_availability_domain AD-2 {
-#   compartment_id = var.compartment_ocid
-#   ad_number      = "2"
-# }
-# data oci_identity_availability_domain AD-3 {
-#   compartment_id = var.compartment_ocid
-#   ad_number      = "3"
-# }
-
-# data oci_objectstorage_namespace os_namespace {
-#   compartment_id = var.compartment_ocid
-# }

@@ -1,9 +1,9 @@
 # Copyright (c) 2021, Oracle and/or its affiliates. All rights reserved.
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
 
-title: "ScaleGrid Redis Deployment on OCI"
-Description: "Terraform Script to deploy Redis on OCI"
-informationalText: "Terraform Script to deploy Redis on OCI"
+title: "Redis Deployment on OCI"
+description: "Redis Deployment on OCI"
+informationalText: "Press the blue button to navigate to management console"
 schemaVersion: 1.1.0
 version: "20220210"
 locale: "en"
@@ -89,15 +89,16 @@ variables:
     description: "Only these IPs will be allowed access to the deployment"
 
   machine_pool_list:
-    title: "Machine Pool ID. Depends on region"
+    title: "Machine Pool Region"
     required: true
     type: enum
-    description: "Mumbai: 5051, Melbourne: 5088, Sydney: 5092"
-    default: 5051
+    description: "Region which the cluster will be deployed"
+    default: "ap-mumbai-1"
     enum:
-      - 5051
-      - 5088
-      - 5092
+      - "ap-mumbai-1"
+      - "ap-melbourne-1"
+      - "ap-sydney-1"
+      - "oci_byoc"
 
   backup_interval:
     type: integer
@@ -123,13 +124,27 @@ variables:
 
 outputs:
   scalegrid_redis_url:
-    type: string
+    type: link
     title: "ScaleGrid Redis Console URL"
     displayText: "ScaleGrid Redis Console URL"
     visible: true
 
-#   test-ml-model-endpoint:
-#     type: string
-#     title: "Test ML Model Endpoint"
-#     displayText: "Test ML Model Endpoint"
-#     visible: true
+  cluster_name:
+    type: string
+    title: "Cluster Name"
+    displayText: "Cluster Name"
+    visible: true
+
+  size:
+    type: string
+    title: "Size of the cluster"
+    displayText: "Size of the cluster"
+    visible: true
+
+  machine_pool_list:
+    type: string
+    title: "Machine Pool Region"
+    displayText: "Machine Pool Region"
+    visible: true
+
+primaryOutputButton: ${scalegrid_redis_url}
