@@ -13,3 +13,7 @@ output size {
 output machine_pool_list {
   value = var.machine_pool_list
 }
+
+output cluster_id {
+  value = "https://console.scalegrid.io/application/${data.local_file.cluster_id.content}"
+}
