@@ -129,8 +129,8 @@ variables:
 outputs:
   scalegrid_redis_url:
     type: link
-    title: "ScaleGrid Redis Console URL"
-    displayText: "ScaleGrid Redis Console URL"
+    title: "Management Console"
+    displayText: "Management Console"
     visible: true
 
   cluster_name:
