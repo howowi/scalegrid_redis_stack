@@ -31,7 +31,7 @@ variable "cidr_list"{
 }
 
 variable "machine_pool_map"{
-  type = "map"
+  type = map
   default = {
     "ap-mumbai-1" = "5051"
     "ap-melbourne-1" = "5088"
