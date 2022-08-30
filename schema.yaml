@@ -133,6 +133,12 @@ outputs:
     displayText: "Management Console"
     visible: true
 
+  redis_monitoring:
+    type: link
+    title: "Monitoring Dashboard"
+    displayText: "Monitoring Dashboard"
+    visible: true
+
   cluster_name:
     type: string
     title: "Cluster Name"
