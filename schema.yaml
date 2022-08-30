@@ -151,10 +151,4 @@ outputs:
     displayText: "Machine Pool Region"
     visible: true
 
-  cluster_link:
-    type: link
-    title: "Cluster Console Link"
-    displayText: "Cluster Console Link"
-    visible: true
-
 primaryOutputButton: ${scalegrid_redis_url}
