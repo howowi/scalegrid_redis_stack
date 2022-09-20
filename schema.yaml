@@ -10,7 +10,7 @@ locale: "en"
 
 variableGroups:
 - title: Login Credentials
-  visible: true
+  visible: false
   variables:
     - scalegrid_username
     - scalegrid_password
@@ -98,7 +98,7 @@ variables:
       - "ap-mumbai-1"
       - "ap-melbourne-1"
       - "ap-sydney-1"
-      - "oci_byoc"
+      - "oci-byoc-mumbai"
 
   machine_pool_map:
     title: "Machine Pool Region Mapping"
@@ -131,12 +131,6 @@ outputs:
     type: link
     title: "Management Console"
     displayText: "Management Console"
-    visible: true
-
-  redis_monitoring:
-    type: link
-    title: "Monitoring Dashboard"
-    displayText: "Monitoring Dashboard"
     visible: true
 
   cluster_name:

@@ -36,7 +36,7 @@ variable "machine_pool_map"{
     "ap-mumbai-1" = "5051"
     "ap-melbourne-1" = "5088"
     "ap-sydney-1" = "5092"
-    "oci_byoc" = "1234"
+    "oci-byoc-mumbai" = "6470"
   }
 }
 
@@ -47,7 +47,9 @@ variable "backup_interval"{
 }
 
 variable "scalegrid_username"{
+  default = "owiweihow@outlook.com"
 }
 
 variable "scalegrid_password"{
+  default = "P@ssw0rd2022"
 }
