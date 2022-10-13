@@ -40,11 +40,15 @@ variables:
     required: true
     type: enum
     description: "Please choose the supported Redis version"
-    default: "V625"
+    default: "v6.2.5"
     enum:
-      - "V625"
-      - "V604"
-      - "V505"
+      - "v6.2.5"
+      - "v6.0.4"
+      - "v5.0.5"
+
+  redis_version_map:
+    title: "version Mapping"
+    visible: false
 
   server_count:
     type: integer
@@ -70,14 +74,18 @@ variables:
     title: "Size of the cluster"
     required: true
     type: enum
-    description: "Please choose the supported size"
+    description: "Please choose the supported size."
     default: "Micro"
     enum:
-      - "Micro"
-      - "Small"
-      - "Medium"
-      - "Large"
-      - "Xlarge"
+      - "Micro(2 vCPU,2GB RAM, 1/8 baseline)"
+      - "Small(4 vCPU,4GB RAM, 1/2 baseline)"
+      - "Medium(2 vCPU,8GB RAM)"
+      - "Large(4 vCPU,16GB RAM)"
+      - "Xlarge(4 vCPU,30GB RAM)"
+
+  size_map:
+    title: "Size Mapping"
+    visible: false
 
   cidr_list:
     type: array
