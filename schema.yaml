@@ -75,7 +75,7 @@ variables:
     required: true
     type: enum
     description: "Please choose the supported size."
-    default: "Micro"
+    default: "Micro(2 vCPU,2GB RAM, 1/8 baseline)"
     enum:
       - "Micro(2 vCPU,2GB RAM, 1/8 baseline)"
       - "Small(4 vCPU,4GB RAM, 1/2 baseline)"
